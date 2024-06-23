@@ -1,0 +1,11 @@
+{% extends 'layout/base.html' %}
+
+{% block "content" %}
+    <h1>Detalles del Grupo: {{ group.name }}</h1>
+    <p>Descripción: {{ group.description }}</p>
+    <a href="{% url 'group_edit' group.id %}">Editar Grupo</a>
+    <form action="{% url 'group_delete' group.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar Grupo">
+    </form>
+{% endblock %}

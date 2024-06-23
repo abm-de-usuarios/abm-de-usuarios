@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+
+
+{% block 'content' %}
+<form class="search" action="{% url 'role_list' %}" method="GET">
+    <input type="text" name="search" class="search-bar" placeholder="Buscar un rol...">
+    <input type="submit" class="btn btn-search" value="Buscar">
+</form>
+<span class="btn-aux">
+    <a href="{% url "role_list" %}" >Ver todos</a> 
+    <a href="{% url "role_create" %}">Añadir</a> 
+
+</span>
+
+
+
+<ul class="list">
+    {% for role in roles  %}
+    
+    <li>{{role.name}} 
+        <span class="btn-group">
+            <a href="{% url 'role_detail' id=role.id %}" class="btn btn-detail">Ver</a>
+            <a href="{% url 'role_update' id=role.id %}" class="btn btn-edit">Editar</a>
+            <form  action="{% url 'role_delete' id=role.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-delete">Borrar</button>
+            </form>        
+        </span> 
+    </li>
+
+    {% endfor %}
+  
+
+
+
+</ul>
+    
+{% endblock 'content' %}

@@ -1,0 +1,11 @@
+<!-- profile_edit.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Editar Perfil de {{ profile.user.username }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Actualizar Perfil">
+    </form>
+{% endblock %}

@@ -1,0 +1,10 @@
+<!-- profile_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Detalles del Perfil de {{ profile.user.username }}</h1>
+    <p>Biografía: {{ profile.bio }}</p>
+    <p>Ubicación: {{ profile.location }}</p>
+    <p>Fecha de Nacimiento: {{ profile.birth_date }}</p>
+    <a href="{% url 'profile_edit' profile.id %}">Editar Perfil</a>
+{% endblock %}

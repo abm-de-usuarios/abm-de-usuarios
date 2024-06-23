@@ -1,0 +1,43 @@
+{% extends "layout/base.html" %}
+
+{% block 'styles' %}
+{% load static %}
+<link rel="stylesheet" href="{% static "css/form.css" %}">
+
+{% endblock 'styles' %}
+
+{% block 'title' %}Editar rol{% endblock 'title' %}
+
+
+
+{% block 'content' %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert-{{ message.tags }} "{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+
+
+
+<form action="{% url 'role_update' id=role.id %}" method="POST">
+    <span class="btn-aux-form">
+        <a href="{% url "role_list" %}" >Atrás</a>  
+    </span>
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <div class="btn-wrapper">
+        <input type="submit" value="Enviar" class="btn-send">
+    </div>
+</form>
+{% endblock 'content' %}
+
+
+
+

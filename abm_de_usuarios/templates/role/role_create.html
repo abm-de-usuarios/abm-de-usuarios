@@ -1,0 +1,34 @@
+{% extends "layout/base.html" %}
+
+{% block 'styles' %}
+{% load static %}
+<link rel="stylesheet" href="{% static "css/form.css" %}">
+
+{% endblock 'styles' %}
+
+{% block 'title' %}Crear rol{% endblock 'title' %}
+
+
+
+{% block 'content' %}
+
+
+
+
+
+
+<form action="{% url 'role_create' %}" method="POST">
+    <span class="btn-aux-form">
+        <a href="{% url "role_list" %}" >Atrás</a>  
+    </span>
+
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    
+    <div class="btn-wrapper">
+        <input type="submit" value="Enviar" class="btn-send">
+    </div>
+</form>
+{% endblock 'content' %}

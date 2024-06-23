@@ -74,23 +74,23 @@ WSGI_APPLICATION = 'abm_de_usuarios.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'btar2weqo2h5pushfkxr',
-#         'USER': 'ublq4uorkyzknx330un2',
-#         'PASSWORD': 'mpddEtQWWf06O373CtCkIAHphnLMJq',
-#         'HOST': 'btar2weqo2h5pushfkxr-postgresql.services.clever-cloud.com',
-#         'PORT': '50013',
-#     }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'btar2weqo2h5pushfkxr',
+        'USER': 'ublq4uorkyzknx330un2',
+        'PASSWORD': 'mpddEtQWWf06O373CtCkIAHphnLMJq',
+        'HOST': 'btar2weqo2h5pushfkxr-postgresql.services.clever-cloud.com',
+        'PORT': '50013',
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": "mydatabase",
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

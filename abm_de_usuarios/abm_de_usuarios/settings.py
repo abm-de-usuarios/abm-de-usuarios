@@ -28,14 +28,14 @@ DEBUG = False
 import subprocess
 
 # Obtener la IP pública utilizando el script y subprocess
-try:
-    current_ip = subprocess.check_output("/home/ubuntu/redes/proyecto/get_public_ip.sh", shell=True).decode().strip()
-except subprocess.CalledProcessError as e:
-    print(f"Error al obtener la IP pública: {e}")
-    current_ip = None
+# try:
+#     current_ip = subprocess.check_output("/home/ubuntu/redes/proyecto/get_public_ip.sh", shell=True).decode().strip()
+# except subprocess.CalledProcessError as e:
+#     print(f"Error al obtener la IP pública: {e}")
+#     current_ip = None
 
 ALLOWED_HOSTS = [
-    current_ip,
+    '54.235.59.195',
     'localhost',
     '127.0.0.1',
 ]

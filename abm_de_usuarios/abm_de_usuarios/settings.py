@@ -29,7 +29,7 @@ import subprocess
 
 # Obtener la IP pública utilizando el script y subprocess
 try:
-    current_ip = subprocess.check_output("./get_public_ip.sh", shell=True).decode().strip()
+    current_ip = subprocess.check_output("/home/ubuntu/redes/proyecto/get_public_ip.sh", shell=True).decode().strip()
 except subprocess.CalledProcessError as e:
     print(f"Error al obtener la IP pública: {e}")
     current_ip = None

@@ -35,7 +35,7 @@ import subprocess
 #     current_ip = None
 
 ALLOWED_HOSTS = [
-    '54.235.59.195',
+    '3.94.198.207',
     'localhost',
     '127.0.0.1',
 ]

@@ -25,7 +25,20 @@ SECRET_KEY = 'django-insecure-109&z+blhw)!ujc&+gr9&%4^5wd5k_&=jom829ejc%5%mul4w#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['100.27.208.47', 'localhost', '127.0.0.1']
+import subprocess
+
+# Obtener la IP pública utilizando el script y subprocess
+try:
+    current_ip = subprocess.check_output("./get_public_ip.sh", shell=True).decode().strip()
+except subprocess.CalledProcessError as e:
+    print(f"Error al obtener la IP pública: {e}")
+    current_ip = None
+
+ALLOWED_HOSTS = [
+    current_ip,
+    'localhost',
+    '127.0.0.1',
+]
 
 
 

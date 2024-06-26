@@ -22,25 +22,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-109&z+blhw)!ujc&+gr9&%4^5wd5k_&=jom829ejc%5%mul4w#'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 import subprocess
 
 # Obtener la IP pública utilizando el script y subprocess
-# try:
-#     current_ip = subprocess.check_output("/home/ubuntu/redes/proyecto/get_public_ip.sh", shell=True).decode().strip()
-# except subprocess.CalledProcessError as e:
-#     print(f"Error al obtener la IP pública: {e}")
-#     current_ip = None
-
+try:
+    current_ip = subprocess.check_output("/home/ubuntu/redes/proyecto/get_public_ip.sh", shell=True).decode().strip()
+except subprocess.CalledProcessError as e:
+    print(f"Error al obtener la IP pública: {e}")
+    current_ip = None
+    
 ALLOWED_HOSTS = [
-    '3.94.198.207',
+    current_ip,
     'localhost',
     '127.0.0.1',
 ]
-
-
 
 # Application definition
 

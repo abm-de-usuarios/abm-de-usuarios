@@ -35,7 +35,7 @@ except subprocess.CalledProcessError as e:
     current_ip = None
     
 ALLOWED_HOSTS = [
-    current_ip,
+    "34.229.202.236",
     'localhost',
     '127.0.0.1',
 ]

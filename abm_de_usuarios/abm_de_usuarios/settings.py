@@ -25,17 +25,26 @@ SECRET_KEY = 'django-insecure-109&z+blhw)!ujc&+gr9&%4^5wd5k_&=jom829ejc%5%mul4w#
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-import subprocess
 
-# Obtener la IP pública utilizando el script y subprocess
+
+import os
+# Ruta al archivo que contiene la IP pública
+IP_FILE_PATH = "/home/ubuntu/abm-de-usuarios/public_ip.txt"
+
+# Leer la IP pública desde el archivo
 try:
-    current_ip = subprocess.check_output("/home/ubuntu/redes/proyecto/get_public_ip.sh", shell=True).decode().strip()
-except subprocess.CalledProcessError as e:
-    print(f"Error al obtener la IP pública: {e}")
+    with open(IP_FILE_PATH, 'r') as file:
+        current_ip = file.read().strip()
+except FileNotFoundError:
+    print(f"El archivo {IP_FILE_PATH} no se encuentra.")
     current_ip = None
-    
+except Exception as e:
+    print(f"Error al leer el archivo de IP pública: {e}")
+    current_ip = None
+
+# Configuración de ALLOWED_HOSTS en Django
 ALLOWED_HOSTS = [
-    "34.229.202.236",
+    current_ip,
     'localhost',
     '127.0.0.1',
 ]

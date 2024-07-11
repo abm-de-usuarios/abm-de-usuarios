@@ -44,6 +44,7 @@ except Exception as e:
 
 # Configuración de ALLOWED_HOSTS en Django
 ALLOWED_HOSTS = [
+    'mi-proyecto-redes.online',
     current_ip,
     'localhost',
     '127.0.0.1',

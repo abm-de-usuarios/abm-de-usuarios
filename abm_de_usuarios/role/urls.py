@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index_views,role_views, group_views
+from .views import index_views,role_views
 
 urlpatterns = [
     path('',index_views.index, name='index_index'),
@@ -13,11 +13,12 @@ urlpatterns = [
     path('roles/delete/<int:id>', role_views.role_delete, name='role_delete'),
 
     # # URLs para Group
-    path('groups/', group_views.group_list, name='group_list'),
-    path('groups/<int:id>/', group_views.group_detail, name='group_detail'),
-    path('groups/create/', group_views.group_create, name='group_create'),
-    path('groups/<int:id>/update/', group_views.group_update, name='group_update'),
-    path('groups/<int:id>/delete/', group_views.group_delete, name='group_delete'),
+    # path('groups/', group_views.group_list, name='group_list'),
+    # path('groups/<int:id>/', group_views.group_detail, name='group_detail'),
+    # path('groups/create/', group_views.group_create, name='group_create'),
+    # path('groups/<int:id>/update/', group_views.group_update, name='group_update'),
+    # path('groups/<int:id>/delete/', group_views.group_delete, name='group_delete'),
+    
 
     # # URLs para User
     # path('users/', user_views.user_list, name='user_list'),

@@ -1,11 +1,27 @@
-<!-- user_create.html -->
-{% extends 'base.html' %}
+{% extends 'layout/base.html' %}
 
-{% block content %}
-    <h1>Crear Nuevo Usuario</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar Usuario">
-    </form>
+{% block 'styles' %}
+{% load static %}
+<link rel="stylesheet" href="{% static "css/form.css" %}">
+
+{% endblock 'styles' %}
+
+{% block 'title' %}Crear ususario{% endblock 'title' %}
+
+
+{% block 'content' %}
+<form action="{% url 'user_create' %}" method="POST">
+    <span class="btn-aux-form">
+        <a href="{% url "user_list" %}" >Atrás</a>  
+    </span>
+
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    
+    <div class="btn-wrapper">
+        <input type="submit" value="Enviar" class="btn-send">
+    </div>
+</form>
 {% endblock %}

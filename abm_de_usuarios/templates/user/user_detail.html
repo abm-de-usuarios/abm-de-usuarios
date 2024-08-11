@@ -1,13 +1,14 @@
-<!-- user_detail.html -->
-{% extends 'base.html' %}
+{% extends 'layout/base.html' %}
+{% block 'title' %}Detalles{% endblock 'title' %}
 
-{% block content %}
+{% block 'content' %}
     <h1>Detalles del Usuario: {{ user.username }}</h1>
     <p>Email: {{ user.email }}</p>
-    <p>Nombre: {{ user.get_full_name }}</p>
-    <a href="{% url 'user_edit' user.id %}">Editar Usuario</a>
-    <form action="{% url 'user_delete' user.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Eliminar Usuario">
-    </form>
+    <p>Nombre: {{ user.first_name }} {{user.last_name}}</p>
+    <p>Rol: {{ user.roles }}</p>
+    <p>Grupo: {{ user.groups }}</p>
+    <p>Cuenta creada el: {{ user.date_joined }}</p>
+
+
+    
 {% endblock %}

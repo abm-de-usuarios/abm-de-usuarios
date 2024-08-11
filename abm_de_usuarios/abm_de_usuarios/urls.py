@@ -5,6 +5,11 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.login,name='login'),
-    path("roles/",include("role.urls")),
+    path('home/',views.home,name="home"),
+    path("role/",include("role.urls")),
+    path("group/",include("group.urls")),
+    path("user/",include("user.urls")),
+    # path("profile/",include("profile.urls")), #hay que definir como se va a mostar el perfil del usuario 
+   
     
 ]

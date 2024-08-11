@@ -1,11 +1,35 @@
-<!-- user_edit.html -->
-{% extends 'base.html' %}
+{% extends "layout/base.html" %}
 
-{% block content %}
-    <h1>Editar Usuario: {{ user.username }}</h1>
-    <form method="post">
+{% block 'styles' %}
+{% load static %}
+<link rel="stylesheet" href="{% static "css/form.css" %}">
+
+{% endblock 'styles' %}
+{% block 'title' %}Editar usuario{% endblock 'title' %}
+
+
+
+{% block 'content' %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="alert-{{ message.tags }} "{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    
+    <form action="{% url 'user_update' id=user.id %}" method="POST">
+        <span class="btn-aux-form">
+            <a href="{% url "user_list" %}" >Atrás</a>  
+        </span>
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Actualizar Usuario">
+        <table>
+            {{form.as_table}}
+        </table>
+        <div class="btn-wrapper">
+            <input type="submit" value="Enviar" class="btn-send">
+        </div>
     </form>
 {% endblock %}

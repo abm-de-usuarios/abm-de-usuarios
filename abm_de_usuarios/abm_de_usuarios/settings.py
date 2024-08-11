@@ -60,6 +60,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'role',
+    'group',
+    'user',
+    'profile',
 ]
 
 MIDDLEWARE = [
@@ -99,10 +102,10 @@ WSGI_APPLICATION = 'abm_de_usuarios.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btar2weqo2h5pushfkxr',
-        'USER': 'ublq4uorkyzknx330un2',
-        'PASSWORD': 'mpddEtQWWf06O373CtCkIAHphnLMJq',
-        'HOST': 'btar2weqo2h5pushfkxr-postgresql.services.clever-cloud.com',
+        'NAME': 'bybeubv6xlqsnppapg2n',
+        'USER': 'umvgg2tv4z3p2kyg3zsf',
+        'PASSWORD': 'VOZ7pGaZ12H6FPVTNiV66uTUtVTN7p',
+        'HOST': 'bybeubv6xlqsnppapg2n-postgresql.services.clever-cloud.com',
         'PORT': '50013',
     }
 }

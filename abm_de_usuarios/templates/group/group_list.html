@@ -1,27 +1,28 @@
 {% extends 'layout/base.html' %}
+{% block 'title' %}Grupos{% endblock 'title' %}
 
 
 {% block 'content' %}
 <form class="search" action="{% url 'group_list' %}" method="GET">
-    <input type="text" name="search" class="search-bar" placeholder="Buscar un usuario...">
+    <input type="text" name="search" class="search-bar" placeholder="Buscar un grupo...">
     <input type="submit" class="btn btn-search" value="Buscar">
 </form>
 <span class="btn-aux">
-    <a href="{% url "role_list" %}" >Ver todos</a> 
-    <a href="{% url "role_create" %}">Añadir</a> 
+    <a href="{% url "group_list" %}" >Ver todos</a> 
+    <a href="{% url "group_create" %}">Añadir</a> 
 
 </span>
 
 
 
 <ul class="list">
-    {% for role in roles  %}
+    {% for group in groups  %}
     
-    <li>{{role.name}} 
+    <li>{{group.name}} 
         <span class="btn-group">
-            <a href="{% url 'role_detail' id=role.id %}" class="btn btn-detail">Ver</a>
-            <a href="{% url 'role_update' id=role.id %}" class="btn btn-edit">Editar</a>
-            <form  action="{% url 'role_delete' id=role.id %}" method="post">
+            <a href="{% url 'group_detail' id=group.id %}" class="btn btn-detail">Ver</a>
+            <a href="{% url 'group_update' id=group.id %}" class="btn btn-edit">Editar</a>
+            <form  action="{% url 'group_delete' id=group.id %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-delete">Borrar</button>
             </form>        
